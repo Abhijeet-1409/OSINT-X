@@ -1,5 +1,5 @@
 import { createContext, useState } from 'react';
-import {jwtDecode} from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 
 const AuthContext = createContext({
   token: null,
@@ -9,7 +9,7 @@ const AuthContext = createContext({
   register: () => { },
   queryList: () => { },
   queryRequest: () => { },
-  logout : () => {},
+  logout: () => { },
 });
 
 export default AuthContext;
@@ -19,7 +19,7 @@ export function AuthContextProvider({ children }) {
   const [user, setUser] = useState(() => localStorage.getItem('token') ? jwtDecode(JSON.parse(localStorage.getItem('token')).access) : null);
 
   const login = async (username, password) => {
-    const response = await fetch('http://127.0.0.1:8000/api/user/login', {
+    const response = await fetch('http://127.0.0.1:8000/api/user/login/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -35,14 +35,14 @@ export function AuthContextProvider({ children }) {
         resData.message || 'Something went wrong, failed to send request.'
       );
     }
-    const token = resData.token;
+    const token = resData;
     localStorage.setItem('token', JSON.stringify(token));
     setToken(token);
     setUser(jwtDecode(token.access));
   }
 
   const register = async (username, email, password) => {
-    const response = await fetch('http://127.0.0.1:8000/api/user/register', {
+    const response = await fetch('http://127.0.0.1:8000/api/user/register/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -96,21 +96,17 @@ export function AuthContextProvider({ children }) {
       data = { ...data, 'query_pdf': querypdf, }
     }
 
-    if(queryimg instanceof Image){
+    if (queryimg instanceof Image) {
       data = { ...data, 'query_image': queryimg, }
     }
 
-    const response = await fetch('http://127.0.0.1:8000/api/query/create', {
+    const response = await fetch('http://127.0.0.1:8000/api/query/create/', {
       method: 'POST',
       headers: headers,
       body: JSON.stringify(data)
     });
     const resData = await response.json();
-    if (!response.ok) {
-      throw new Error(
-        resData.message || 'Something went wrong, failed to send request.'
-      );
-    }
+
     return resData;
   }
 
@@ -130,7 +126,7 @@ export function AuthContextProvider({ children }) {
     }
     return resData;
   }
-  
+
   const logout = () => {
     localStorage.removeItem('token');
     setToken(null);
@@ -144,7 +140,7 @@ export function AuthContextProvider({ children }) {
     register: register,
     featuresList: featuresList,
     queryList: queryList,
-    queryRequest:queryRequest,
+    queryRequest: queryRequest,
     logout: logout,
   }
   return (

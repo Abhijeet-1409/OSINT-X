@@ -1,28 +1,23 @@
-import React, { useState } from "react";
-
+import  { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom"; 
+import AuthContext  from "../store/authContext"; 
 const SignUp = () => {
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+  const {register} = useContext(AuthContext);
+  const [error,setError] = useState();
+  const navigate = useNavigate();
+  async function  handlesubmit(event) {
+    event.preventDefault();
+    const username = event.target.username.value;
+    const password = event.target.password.value;
+    const email = event.target.email.value;
+    try {
+      await register(username,password);
+      navigate('/');
+    } catch (error) {
+      setError(error.message || 'An error occurred');
+    }
     
-
-  const toggleForm = (e) => {
-    e.preventDefault();
-    // Add logic to toggle between Login and SignUp forms
-  };
-
-  const handleFullNameChange = (event) => {
-    setFullName(event.target.value);
-  };
-
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-    };
-    console.log( fullName );
+  }
 
   return (
     <div>
@@ -111,13 +106,11 @@ const SignUp = () => {
         <div className="form-container" style={{ display: "block" }}>
           <h1>Sign Up</h1>
           <form>
-            <label htmlFor="fullName">Full Name</label>
+            <label htmlFor="username">Username</label>
             <input
               type="text"
-              id="fullName"
-              name="fullName"
-              value={fullName}
-              onChange={handleFullNameChange}
+              id="username"
+              name="username"
               required
             />
             <label htmlFor="email">Email</label>
@@ -125,8 +118,6 @@ const SignUp = () => {
               type="email"
               id="email"
               name="email"
-              value={email}
-              onChange={handleEmailChange}
               required
             />
             <label htmlFor="password">Password</label>
@@ -134,8 +125,6 @@ const SignUp = () => {
               type="password"
               id="password"
               name="password"
-              value={password}
-              onChange={handlePasswordChange}
               required
             />
             <button>Sign Up</button>

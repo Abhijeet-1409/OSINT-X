@@ -1,21 +1,23 @@
-import React, { useState } from "react";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 import SignUp from "./Signup";
-
+import AuthContext  from "../store/authContext"; 
 const Login = () => {
-  const [phoneEmail, setPhoneEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const toggleForm = (e) => {
-    e.preventDefault();
-  };
-
-  const handlePhoneEmailChange = (event) => {
-    setPhoneEmail(event.target.value);
-  };
-
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
+  const {login} = useContext(AuthContext);
+  const [error,setError] = useState();
+  const navigate = useNavigate();
+  async function  handlesubmit(event) {
+    event.preventDefault();
+    const username = event.target.username.value;
+    const password = event.target.password.value;
+    try {
+      await login(username,password);
+      navigate('/');
+    } catch (error) {
+      setError(error.message || 'An error occurred');
+    }
+    
+  }
 
   return (
     <div>
@@ -103,14 +105,12 @@ const Login = () => {
       <div className="container">
         <div className="form-container" style={{ display: "block" }}>
           <h1>Login</h1>
-          <form>
-            <label htmlFor="username">Email</label>
+          <form onSubmit={handlesubmit}>
+            <label htmlFor="username">Username</label>
             <input
               type="text"
               id="username"
               name="username"
-              value={phoneEmail}
-              onChange={handlePhoneEmailChange}
               required
             />
             <label htmlFor="password">Password</label>
@@ -118,11 +118,9 @@ const Login = () => {
               type="password"
               id="password"
               name="password"
-              value={password}
-              onChange={handlePasswordChange}
               required
             />
-            <button>Login</button>
+            <button >Login</button>
           </form>
           <p>
             Don't have an account?{" "}
