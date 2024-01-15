@@ -22,6 +22,8 @@ function Footer() {
           
           Footer Component comimg 
     </div>
+    
+   
   )
 }
 
