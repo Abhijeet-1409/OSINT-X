@@ -16,7 +16,7 @@ export default AuthContext;
 
 export function AuthContextProvider({ children }) {
   const [token, setToken] = useState(() => localStorage.getItem('token') ? JSON.parse(localStorage.getItem('token')) : null);
-  const [user, setUser] = useState(() => localStorage.getItem('token') ? jwtDecode(JSON.parse(localStorage.getItem('token')).access) : null);
+  const [user, setUser] = useState(() => localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null);
 
   const login = async (username, password) => {
     const response = await fetch('http://127.0.0.1:8000/api/user/login/', {
@@ -36,9 +36,14 @@ export function AuthContextProvider({ children }) {
       );
     }
     const token = resData;
+    const id = jwtDecode(token.access).user_id;
+    const userListResponse = await fetch('http://127.0.0.1:8000/api/user/list/');
+    const userList = await userListResponse.json();
+    const userObject = userList.filter((user) => user.id == id)[0];
     localStorage.setItem('token', JSON.stringify(token));
+    localStorage.setItem('user', JSON.stringify(userObject)); 
     setToken(token);
-    setUser(jwtDecode(token.access));
+    setUser(jwtDecode(userObject));
   }
 
   const register = async (username, email, password) => {
@@ -129,6 +134,7 @@ export function AuthContextProvider({ children }) {
 
   const logout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
     setToken(null);
     setUser(null);
   }

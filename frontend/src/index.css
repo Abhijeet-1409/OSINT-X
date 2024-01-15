@@ -48,6 +48,7 @@ body {
 .main-navbar li {
   padding: 0.8rem;
   margin: 0.5rem;
+  color: white;
 }
 
 .main-navbar li a {
@@ -94,19 +95,22 @@ body {
   background-color: #ffffff;
   /* border: 1px solid black; */
   /* width: 40%; */
-  box-shadow:  0  15px 10px rgba(0,0,0,.16);
+  box-shadow: 0 15px 10px rgba(0, 0, 0, .16);
 
 }
-.feature-item h3{
+
+.feature-item h3 {
   font-size: 2rem;
   text-align: left;
   padding: 0.5rem 0 0 1.875rem;
 }
-.feature-item p{
+
+.feature-item p {
   font-size: 20px;
   text-align: left;
-  padding-left:30px ;
+  padding-left: 30px;
 }
+
 .feature-item a {
   text-decoration: none;
   color: black;
@@ -150,51 +154,51 @@ input {
 .button {
   margin: 0.25rem;
   padding: 0.25rem;
-  
+
 }
 
-.container{
-padding: 10px 10px;
-margin: 0;
-margin-left: 15rem;
-background-color: #fff;
+.container {
+  padding: 10px 10px;
+  margin: 0;
+  background-color: #fff;
 }
-.section{
+
+.section {
   display: flex;
-  margin:90px 0px 0px 100px;
+  margin: 90px 0px 0px 100px;
   /* gap: 150px; */
-  }
-.info{
-/* border: 2px solid red; */
-/* height: 100px;
+}
+
+.info {
+  /* border: 2px solid red; */
+  /* height: 100px;
 width: 100px; */
-margin-right: 70px;
+  margin-right: 70px;
 }
 
-.info h2{
-      background-color: #222;
-    color: #fff;
-    font-weight: 700;
-    padding: 6px 5px;
-    width: 400px;
+.info h2 {
+  background-color: #222;
+  color: #fff;
+  font-weight: 700;
+  padding: 6px 5px;
+  width: 400px;
 }
 
-.info p{
+.info p {
   font-size: 20px;
 }
 
-.img{
-/* border:2px solid red; */
-/* height: 109px;
+.img {
+  /* border:2px solid red; */
+  /* height: 109px;
 width: 100px; */
-margin-right: 80px;
+  margin-right: 80px;
 }
 
-.row{
+.row {
   display: flex;
 }
 
-.column{
+.column {
   display: grid;
 }
-

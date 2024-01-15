@@ -1,22 +1,22 @@
-import  { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom"; 
-import AuthContext  from "../store/authContext"; 
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import AuthContext from "../store/authContext";
 const SignUp = () => {
-  const {register} = useContext(AuthContext);
-  const [error,setError] = useState();
+  const { register } = useContext(AuthContext);
+  const [error, setError] = useState();
   const navigate = useNavigate();
-  async function  handlesubmit(event) {
+  async function handlesubmit(event) {
     event.preventDefault();
     const username = event.target.username.value;
     const password = event.target.password.value;
     const email = event.target.email.value;
     try {
-      await register(username,password);
+      await register(username, password);
       navigate('/');
     } catch (error) {
       setError(error.message || 'An error occurred');
     }
-    
+
   }
 
   return (
@@ -40,7 +40,6 @@ const SignUp = () => {
           // }
           .form-container {
             width: 600px;
-            margin: 151px 0px 0px 400px;
             padding: 50px;
             background-color: white;
             border-radius: 10px;
@@ -131,7 +130,7 @@ const SignUp = () => {
           </form>
           <p>
             Already have an account?{" "}
-            <a href="/login"     id="login-link">
+            <a href="/login" id="login-link">
               Login
             </a>
           </p>

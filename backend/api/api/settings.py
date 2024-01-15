@@ -52,6 +52,11 @@ REST_FRAMEWORK = {
     )
 }
 
+JWT_AUTH = {
+    'JWT_PAYLOAD_HANDLER': 'users.serializers.MyTokenObtainPairSerializer',
+    # Other JWT settings...
+}
+
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(days=1),

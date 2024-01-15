@@ -1,22 +1,37 @@
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import SignUp from "./Signup";
-import AuthContext  from "../store/authContext"; 
+import AuthContext from "../store/authContext";
 const Login = () => {
-  const {login} = useContext(AuthContext);
-  const [error,setError] = useState();
+  const { login } = useContext(AuthContext);
+  const [error, setError] = useState();
   const navigate = useNavigate();
-  async function  handlesubmit(event) {
+  async function handlesubmit(event) {
     event.preventDefault();
     const username = event.target.username.value;
     const password = event.target.password.value;
+
+    // Validation for username (at least one capital letter, min 8 characters)
+    const usernameRegex = /^(?=.*[A-Z]).{8,}$/;
+    if (!usernameRegex.test(username)) {
+      alert("Invalid username. It should have at least one capital letter and be at least 8 characters long.");
+      return;
+    }
+
+    // Validation for password (at least one capital letter, min 8 characters)
+    const passwordRegex = /^(?=.*[A-Z]).{8,}$/;
+    if (!passwordRegex.test(password)) {
+      alert("Invalid password. It should have at least one capital letter and be at least 8 characters long.");
+      return;
+    }
+
     try {
-      await login(username,password);
+      await login(username, password);
       navigate('/');
     } catch (error) {
       setError(error.message || 'An error occurred');
     }
-    
+
   }
 
   return (
@@ -40,7 +55,6 @@ const Login = () => {
           // }
           .form-container {
             width: 600px;
-            margin: 151px 0px 0px 400px;
             padding: 50px;
             background-color: white;
             border-radius: 10px;
@@ -124,7 +138,7 @@ const Login = () => {
           </form>
           <p>
             Don't have an account?{" "}
-            <a href="/signup"  id="signup-link">
+            <a href="/signup" id="signup-link">
               Sign up
             </a>
           </p>
