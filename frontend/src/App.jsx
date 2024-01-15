@@ -7,6 +7,7 @@ import FeatureDetail from './pages/FeatureDetail';
 import FeatureLayout from './pages/FeatureLayout';
 import "bootstrap/dist/css/bootstrap.min.css";
 import SignUp from './pages/Signup';
+import { AuthContextProvider } from './store/authContext';
 const features = [
   {
     id: 1,
@@ -92,10 +93,14 @@ const router = createBrowserRouter([
   },
 ]);
 
-localStorage.setItem('features', JSON.stringify(features));
+// localStorage.setItem('features', JSON.stringify(features));
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+  <AuthContextProvider>
+    <RouterProvider router={router} />
+  </AuthContextProvider>
+  );
 }
 
 export default App
