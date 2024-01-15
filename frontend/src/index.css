@@ -14,8 +14,11 @@
 
 body {
   margin: 0;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAABQAgMAAADjM5anAAAACVBMVEUAAAAPDw8PDxA5dZcEAAAAA3RSTlMACCueE7eWAAAAO0lEQVR4AWOAA0Y4C6vYiFI4qnBU4ajCUYWjCpmwiZGjMBQGspbCmdjEqGX1iIrCUYWjCkcVjiocVQgAPC8OuQNGhAYAAAAASUVORK5CYII=);
   padding: 0;
   min-height: 100vh;
+  /* font-family: Raleway,HelveticaNeue,Helvetica Neue,Helvetica,Arial,sans-serif; */
+
 }
 
 #root {
@@ -26,7 +29,7 @@ body {
   width: 100vw;
   height: 30%;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   background-color: black;
 
 }
@@ -67,8 +70,9 @@ body {
 
 .feature-layout {
   display: flex;
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
   justify-content: center;
+  margin-top: 30px;
 }
 
 .features-list {
@@ -81,15 +85,28 @@ body {
 }
 
 .feature-item {
-  margin: 0.25rem;
-  padding: 0.25rem;
-  width: 35%;
+  margin: 1rem;
+  padding: 0.5rem;
+  width: 25%;
   height: 40%;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.573);
-  border: 1px solid black;
-}
+  /* background-color: rgba(0, 0, 0, 0.573); */
+  background-color: #ffffff;
+  /* border: 1px solid black; */
+  /* width: 40%; */
+  box-shadow:  0  15px 10px rgba(0,0,0,.16);
 
+}
+.feature-item h3{
+  font-size: 2rem;
+  text-align: left;
+  padding: 0.5rem 0 0 1.875rem;
+}
+.feature-item p{
+  font-size: 20px;
+  text-align: left;
+  padding-left:30px ;
+}
 .feature-item a {
   text-decoration: none;
   color: black;
@@ -134,4 +151,49 @@ input {
   margin: 0.25rem;
   padding: 0.25rem;
   
+}
+
+.container{
+padding: 10px 10px;
+margin: 0;
+margin-left: 15rem;
+background-color: #fff;
+}
+.section{
+  display: flex;
+  margin:90px 0px 0px 100px;
+  /* gap: 150px; */
+  }
+.info{
+/* border: 2px solid red; */
+/* height: 100px;
+width: 100px; */
+margin-right: 70px;
+}
+
+.info h2{
+      background-color: #222;
+    color: #fff;
+    font-weight: 700;
+    padding: 6px 5px;
+    width: 400px;
+}
+
+.info p{
+  font-size: 20px;
+}
+
+.img{
+/* border:2px solid red; */
+/* height: 109px;
+width: 100px; */
+margin-right: 80px;
+}
+
+.row{
+  display: flex;
+}
+
+.column{
+  display: grid;
 }
