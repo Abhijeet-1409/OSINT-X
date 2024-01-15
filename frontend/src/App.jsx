@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import FeatureDetail from './pages/FeatureDetail';
 import FeatureLayout from './pages/FeatureLayout';
 import "bootstrap/dist/css/bootstrap.min.css";
+import SignUp from './pages/Signup';
 const features = [
   {
     id: 1,
@@ -86,6 +87,7 @@ const router = createBrowserRouter([
         ],
       },
       { path: 'login', element: <Login /> },
+      {path:'signup',element:<SignUp/>}
     ]
   },
 ]);

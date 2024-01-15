@@ -39,7 +39,7 @@ function Home({}) {
                 fontWeight: "300",
               }}
             >
-              OSINT-X is the world's first search engine for Internet-connected
+              OSINT-X is a search engine for Internet-connected
               devices. Discover how Internet intelligence can help you make
               better decisions.
             </span>
@@ -104,7 +104,7 @@ function Home({}) {
             />
           </div>
           <div className="info">
-            <h2>PDF Analysis Made Easy</h2>
+            <h2>Username Checker</h2>
             <p>
               Within 5 minutes of using Shodan Monitor you will see what you
               currently have connected to the Internet within your network range
@@ -116,7 +116,7 @@ function Home({}) {
 
         <div className="section">
           <div className="info">
-            <h2>PDF Analysis Made Easy</h2>
+            <h2>URL Validator</h2>
             <p>
               Within 5 minutes of using Shodan Monitor you will see what you
               currently have connected to the Internet within your network range

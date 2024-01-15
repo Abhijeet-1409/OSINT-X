@@ -1,21 +1,28 @@
 import React, { useState } from "react";
-import SignUp from "./Signup";
 
-const Login = () => {
-  const [phoneEmail, setPhoneEmail] = useState("");
-  const [password, setPassword] = useState("");
+const SignUp = () => {
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    
 
   const toggleForm = (e) => {
     e.preventDefault();
+    // Add logic to toggle between Login and SignUp forms
   };
 
-  const handlePhoneEmailChange = (event) => {
-    setPhoneEmail(event.target.value);
+  const handleFullNameChange = (event) => {
+    setFullName(event.target.value);
+  };
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
   };
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
-  };
+    };
+    console.log( fullName );
 
   return (
     <div>
@@ -102,15 +109,24 @@ const Login = () => {
 
       <div className="container">
         <div className="form-container" style={{ display: "block" }}>
-          <h1>Login</h1>
+          <h1>Sign Up</h1>
           <form>
-            <label htmlFor="username">Email</label>
+            <label htmlFor="fullName">Full Name</label>
             <input
               type="text"
-              id="username"
-              name="username"
-              value={phoneEmail}
-              onChange={handlePhoneEmailChange}
+              id="fullName"
+              name="fullName"
+              value={fullName}
+              onChange={handleFullNameChange}
+              required
+            />
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={email}
+              onChange={handleEmailChange}
               required
             />
             <label htmlFor="password">Password</label>
@@ -122,12 +138,12 @@ const Login = () => {
               onChange={handlePasswordChange}
               required
             />
-            <button>Login</button>
+            <button>Sign Up</button>
           </form>
           <p>
-            Don't have an account?{" "}
-            <a href="/signup"  id="signup-link">
-              Sign up
+            Already have an account?{" "}
+            <a href="/login"     id="login-link">
+              Login
             </a>
           </p>
         </div>
@@ -136,4 +152,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
