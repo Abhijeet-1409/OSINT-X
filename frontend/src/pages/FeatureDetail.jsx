@@ -10,6 +10,7 @@ function FeatureDetail({ }) {
   const feature = features.find((f) => f.id == parseInt(featureId));
   const isInputFileTypeNeeded = feature.name == 'PDF meta data analysis' ;
   console.log(isInputFileTypeNeeded)
+  console.log(feature)
   function handleSubmit() {
     var refQuery = inputRef.current.value;
     if (refQuery.length > 0) {
@@ -19,18 +20,23 @@ function FeatureDetail({ }) {
       }, 2000);
     }
   }
-
+  
+  // console.log({ feature.description });
 
   return (
     <div>
-      <h1 title='main-title' >{feature.name}</h1>
-      {!isInputFileTypeNeeded ?  <input ref={inputRef} type="text" /> : <input type="file" />}
-      <button onClick={handleSubmit}>submit</button>
+      <h1 className="main-title">{feature.name}</h1>
+      <p>{feature.description}</p>
+      {!isInputFileTypeNeeded ? (
+        <input ref={inputRef} type="text" />
+      ) : (
+        <input type="file" />
+      )}
+      <br/>
+      <button className="submit"onClick={handleSubmit} >Submit</button>
       {query && <Output data={query} />}
     </div>
   );
 }
 
 export default FeatureDetail;
-
-bha

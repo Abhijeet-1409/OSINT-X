@@ -66,13 +66,61 @@ body {
 
 .main-title {
   text-align: center;
+  font-weight: 700;
+
 }
 
+
+
+
+
 .feature-layout {
+  margin: 0 auto;  /* Center the element horizontally */
   display: flex;
-  /* padding: 0.5rem; */
   justify-content: center;
   margin-top: 30px;
+  background-color: #fff;
+  text-align: center;
+  padding: 0.5rem;  /* Add padding as needed */
+  width: 50%;
+}
+
+
+.feature-layout p{
+  display: flex;
+  /* border: 2px solid red; */
+  /* width: 50%; */
+  /* text-align: center; */
+  /* margin-right: 100px; */
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.feature-layout input{
+  height:25%;
+  width: 45%; 
+  border: 2px solid black;
+  color: black;
+  background-color: #fff;
+  border-radius: 3px;
+  font-size: 20px;
+}
+
+.submit{
+  width: 8.125rem;
+  height: 2.5rem;
+  font-size: 22px;
+  background-color: red;
+  color: black;
+  border-radius: 3px;
+  margin-top: 3px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.submit:hover{
+  color: red;
+  background-color:black;
 }
 
 .features-list {
@@ -87,29 +135,46 @@ body {
 .feature-item {
   margin: 1rem;
   padding: 0.5rem;
-  width: 25%;
-  height: 40%;
+  width: 30.625rem;
+  height: 15.rem;
   text-align: center;
   /* background-color: rgba(0, 0, 0, 0.573); */
   background-color: #ffffff;
   /* border: 1px solid black; */
   /* width: 40%; */
   box-shadow:  0  15px 10px rgba(0,0,0,.16);
+  min-height: 9.813rem;
+  padding-left: 30px;
 
 }
 .feature-item h3{
   font-size: 2rem;
   text-align: left;
-  padding: 0.5rem 0 0 1.875rem;
+  padding: 0.5rem 0 0 0;
 }
 .feature-item p{
   font-size: 20px;
   text-align: left;
-  padding-left:30px ;
+  /* padding-left:30px ; */
 }
 .feature-item a {
   text-decoration: none;
   color: black;
+}
+
+.learn-more{
+  padding: 7px;
+  border-radius: 3px;
+  display: flex;
+  text-align: left;
+  margin-bottom: 10px;
+  background-color: #fff;
+  color: black;
+}
+
+.learn-more:hover{
+  color: #fff;
+  background-color: black;
 }
 
 @media (width <=500px) {
