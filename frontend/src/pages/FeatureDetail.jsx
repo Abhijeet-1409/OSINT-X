@@ -24,7 +24,7 @@ function FeatureDetail({ }) {
   // console.log({ feature.description });
 
   return (
-    <div>
+    <div className="feature-details">
       <h1 className="main-title">{feature.name}</h1>
       <p>{feature.description}</p>
       {!isInputFileTypeNeeded ? (

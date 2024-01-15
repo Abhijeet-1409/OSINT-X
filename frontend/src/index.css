@@ -82,9 +82,12 @@ body {
   background-color: #fff;
   text-align: center;
   padding: 0.5rem;  /* Add padding as needed */
-  width: 50%;
 }
 
+.feature-details{
+  
+  width: 50%;
+}
 
 .feature-layout p{
   display: flex;
@@ -262,4 +265,38 @@ margin-right: 80px;
 .column{
   display: grid;
 }
+.history{
 
+  background-color: white;
+  /* border: 2px solid silver; */
+margin: 0 auto;
+  width: 70%;
+  /* align-items: center; */
+  text-align: center;
+   box-shadow:  5px 5px  15px 10px rgba(0,0,0,.16);
+   border-radius: 5px;
+   margin-top: 60px;
+   padding: 10px;
+  
+}
+.history h2{
+  font-size: 2.7rem;
+  font-weight: 500;
+  /* margin: 0 auto; */
+  margin-top: 30px;
+  background-color: white;
+}
+
+
+/* text-align: center; */
+  .history li{
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 100;
+    display: flex;
+    justify-content: center;
+    /* margin: 0 auto; */
+    /* margin: 0 auto; */
+    /* justify-content: center; */
+    /* align-items: center; */
+}

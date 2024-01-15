@@ -7,6 +7,7 @@ import FeatureDetail from './pages/FeatureDetail';
 import FeatureLayout from './pages/FeatureLayout';
 import "bootstrap/dist/css/bootstrap.min.css";
 import SignUp from './pages/Signup';
+import History from './pages/History';
 import { AuthContextProvider } from './store/authContext';
 
 
@@ -25,7 +26,8 @@ const router = createBrowserRouter([
         ],
       },
       { path: 'login', element: <Login /> },
-      {path:'signup',element:<SignUp/>}
+      { path: 'signup', element: <SignUp /> },
+      {path:'history',element:<History/>}
     ]
   },
 ]);
