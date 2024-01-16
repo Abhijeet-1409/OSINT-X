@@ -10,7 +10,6 @@ import Login from './pages/Login';
 import FeatureDetail from './pages/FeatureDetail';
 import FeatureLayout from './pages/FeatureLayout';
 import SignUp from './pages/Signup';
-import PhoneSearch from './components/PhoneSearch';
 
 
 const router = createBrowserRouter([
@@ -29,7 +28,6 @@ const router = createBrowserRouter([
       },
       { path: 'login', element: <Login /> },
       { path: 'signup', element: <SignUp /> },
-      { path: 'phonesearch', element: <PhoneSearch /> },
     ]
   },
 ]);
