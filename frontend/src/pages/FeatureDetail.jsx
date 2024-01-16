@@ -70,11 +70,18 @@ function FeatureDetail({ }) {
 
   return (
     <div>
-      <h1 title='main-title'>{feature.name}</h1>
-      {!isInputFileTypeNeeded ? <input ref={inputRef} type="text" /> : <input ref={inputRef} type="file" />}
-      <button onClick={handleSubmit}>submit</button>
+     <div className="feature-details">
+      <h1 className="main-title">{feature.name}</h1>
+      <p>{feature.description}</p>
+      {!isInputFileTypeNeeded ? (
+        <input ref={inputRef} type="text" />
+      ) : (
+        <input type="file" />
+      )}
+      <br/>
+      <button className="submit"onClick={handleSubmit} >Submit</button>
       {loading && outputData && renderComponent()}
-      
+      </div>
     </div>
   );
 }
