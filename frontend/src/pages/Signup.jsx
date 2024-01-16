@@ -1,32 +1,17 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import SignUp from "./Signup";
 import AuthContext from "../store/authContext";
-const Login = () => {
-  const { login } = useContext(AuthContext);
+const SignUp = () => {
+  const { register } = useContext(AuthContext);
   const [error, setError] = useState();
   const navigate = useNavigate();
   async function handlesubmit(event) {
     event.preventDefault();
     const username = event.target.username.value;
     const password = event.target.password.value;
-
-    // Validation for username (at least one capital letter, min 8 characters)
-    const usernameRegex = /^(?=.*[A-Z]).{8,}$/;
-    if (!usernameRegex.test(username)) {
-      alert("Invalid username. It should have at least one capital letter and be at least 8 characters long.");
-      return;
-    }
-
-    // Validation for password (at least one capital letter, min 8 characters)
-    const passwordRegex = /^(?=.*[A-Z]).{8,}$/;
-    if (!passwordRegex.test(password)) {
-      alert("Invalid password. It should have at least one capital letter and be at least 8 characters long.");
-      return;
-    }
-
+    const email = event.target.email.value;
     try {
-      await login(username, password);
+      await register(username, password);
       navigate('/');
     } catch (error) {
       setError(error.message || 'An error occurred');
@@ -118,13 +103,20 @@ const Login = () => {
 
       <div className="container">
         <div className="form-container" style={{ display: "block" }}>
-          <h1>Login</h1>
-          <form onSubmit={handlesubmit}>
+          <h1>Sign Up</h1>
+          <form>
             <label htmlFor="username">Username</label>
             <input
               type="text"
               id="username"
               name="username"
+              required
+            />
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
               required
             />
             <label htmlFor="password">Password</label>
@@ -134,12 +126,12 @@ const Login = () => {
               name="password"
               required
             />
-            <button >Login</button>
+            <button>Sign Up</button>
           </form>
           <p>
-            Don't have an account?{" "}
-            <a href="/signup" id="signup-link">
-              Sign up
+            Already have an account?{" "}
+            <a href="/login" id="login-link">
+              Login
             </a>
           </p>
         </div>
@@ -148,4 +140,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
