@@ -60,6 +60,8 @@ const Login = () => {
             border-radius: 10px;
             box-shadow:  0px 4px 10px 10px rgba(0, 0, 0, 0.2);
             color: black;
+            margin: 0 auto;
+            margin-top:5.938rem
           }
           h1 {
             text-align: center;

@@ -29,7 +29,7 @@ function FeaturesList() {
   }
 
   return (
-    <div style={{border:"2px solid red"}}>
+    <div >
       {loading ? (
         <p style={{border:"2px soild green"}}>Loading...</p>
       ) : features.length === 0 ? (

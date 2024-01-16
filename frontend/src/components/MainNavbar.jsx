@@ -20,7 +20,10 @@ function MainNavbar({ }) {
               <Link to={"features"}>Features</Link>
             </li>
             <li>
-              <Link to={"login"}>Login / Sign up</Link>
+              <Link to={"login"}>Login</Link>
+            </li>
+            <li>
+              <Link to={"history"}>History</Link>
             </li>
           </ul>
         </div>
